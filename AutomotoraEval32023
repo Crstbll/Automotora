@@ -1,0 +1,107 @@
+import os
+os.system("cls")
+
+ListaTipo = []
+ListaPatente = []
+ListaMarca = []
+ListaPrecio = []
+ListaMulta = []
+ListaFecha = []
+ListaNombreDueno = []
+ListaEmision = []
+ListaAnotaciones = []
+
+def Menu():
+    print("Menu")
+    print("1. Grabar: ")
+    print("2. Buscar: ")
+    print("3. Imprimir certificados: ")
+    print("4. SALIR")
+    return input("Seleccion de opcion")
+
+def Grabar():
+    print("Datos solicitados: ")
+    Tipo = input("Tipo vehiculo: ")
+    Patente = input("Patente: ")
+    Marca = input("Marca: ")
+    Precio = int(input("Precio: "))
+    while True:
+        try:
+            monto = int(input("Ingresar  precio: "))
+            if monto >= 5000000:
+                ListaPrecio.append(Precio)
+                break
+            else:
+                print("Valor invalido")
+        except:
+            print("Excepcion")    
+        Multas = int(input("Multas: "))
+        Fecha = input("Fecha Registro: ")
+        Nombre = input("Nombre dueño: ")
+        ListaTipo.append(Tipo)
+        ListaPatente.append(Patente)
+        ListaMarca.append(Marca)
+        ListaMulta.append(Multas)
+        ListaFecha.append(Fecha)
+        ListaNombreDueno.append(Nombre)
+
+def Buscar():
+    print("Buscar Patente: ")   
+    print(f"Lista Patentes: {ListaPatente}")
+    Npatente = input("Ptente: ")
+    if not Npatente in ListaPatente:
+        print("No existe la Patente")
+    else:
+        print(f"La Patente es: {ListaPatente}")
+
+def Imprimir():
+    print("Imprimir Certificados: ")   
+    Emision = int(input("Emision de contaminantes: "))
+    ListaEmision.append()
+    if Emision > 0:
+     print(f"Emision de contaminantes: {ListaEmision}")
+    else:
+        print("No registradas")
+    print("Anotaciones: ")
+    Anotacion = int(input("Anotaciones vigentes: ")) 
+    ListaAnotaciones.append()   
+    if Anotacion > 0:
+        print(f"Anotaciones vigentes: {ListaAnotaciones}")
+    else:
+        print("No registrado")
+    print("Multas: ")
+    Multas = int(input("Multas: "))
+    ListaMulta.append()
+    if Multas > 0:
+        print(f"Multas:  {ListaMulta}")
+    else:
+        print("Sin Multas")
+
+
+def Salir():
+    print("\nSalir")
+
+while True:
+    try:
+        opc = Menu()
+        if opc == "4":
+            Salir()
+            break
+        elif opc == "1":
+            Grabar()
+        elif opc == "2":
+            Buscar()
+        elif opc == "3":
+            Imprimir()
+        else:
+            print("\nOpcion incorrecta, intente otra vez")
+        input("Reintentar")
+    except:
+        print("Excepcion")    
+
+
+
+
+
+
+
